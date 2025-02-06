@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aaaaaaaaaaaaa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Baby, will you be my Valentine?❤️</h1>
+        <div class="buttons">
+            <button class="yes" id="yesButton" onclick="showMessageAndImage()">YES</button>
+            <button class="no" id="noButton" onmouseover="teleportNo(); showBruhhMessage()" onclick="disableNo()">No</button>
+        </div>
+        <div class="message" id="message">Yay! ❤️ Can't wait to celebrate with you!</div>
+        
+        <!-- Hidden image and message -->
+        <div class="image-message" id="imageMessage">
+            <div class="image-container">
+                <img src="us.jpg" alt="Us" id="usImage" class="us-image">
+                <p class="message-text">wala ka choice :b mwaaaaaaaaa😚</p>
+            </div>
+        </div>
+        <!-- Hover message -->
+        <div class="hover-message" id="hoverMessage">😠!😠!😠!😠!</div>
+
+        <!-- :b message -->
+        <div class="b-message" id="bMessage">🤪🤪🤪🤪</div>
+    </div>
+
+    <script>
+        function showMessageAndImage() {
+            let msg = document.getElementById("message");
+            msg.style.opacity = "0"; // Hide initial message
+            msg.style.transform = "scale(0.8)";
+
+            // Show the new message and image
+            let imageMessage = document.getElementById("imageMessage");
+            imageMessage.style.opacity = "1";
+            imageMessage.style.transform = "scale(1)"; // Show the image and message
+        }
+
+        function teleportNo() {
+            let noButton = document.getElementById('noButton');
+            let buttonWidth = noButton.offsetWidth;
+            let buttonHeight = noButton.offsetHeight;
+
+            // Get the container's position and size to limit teleportation within that area
+            let container = document.querySelector('.container');
+            let containerRect = container.getBoundingClientRect();
+
+            // Calculate the maximum X and Y within the container area (excluding button size)
+            let maxX = containerRect.width - buttonWidth - 20;
+            let maxY = containerRect.height - buttonHeight - 50; // Keeping space below header
+
+            // Random teleportation coordinates within the container's area
+            let newX = Math.random() * maxX;
+            let newY = Math.random() * maxY;
+
+            // Instantly teleport the "No" button
+            noButton.style.transition = "none"; // Remove transition to avoid animation
+            noButton.style.position = "absolute"; // Set absolute positioning for teleportation
+            noButton.style.left = `${newX}px`;
+            noButton.style.top = `${newY}px`;
+        }
+
+        function disableNo() {
+            let noButton = document.getElementById('noButton');
+            noButton.disabled = true; // Disable the button so it can't be clicked anymore
+            noButton.style.pointerEvents = "none"; // Disable mouse events (no clicks)
+            noButton.style.opacity = "0"; // Make the button disappear
+            setTimeout(() => {
+                noButton.style.display = "none"; // Completely remove the button from the page after it disappears
+            }, 500); // Wait for opacity transition before hiding the button
+
+            // Show the :b message
+            let bMessage = document.getElementById('bMessage');
+            bMessage.style.opacity = '1'; // Show the :b message
+            bMessage.style.transform = 'scale(1)'; // Make it appear smoothly
+
+            // Hide the :b message after 1 second
+            setTimeout(() => {
+                bMessage.style.opacity = '0';
+                bMessage.style.transform = 'scale(0.8)';
+            }, 1000); // Hide the :b message after 1 second
+        
+        }
+
+        function showBruhhMessage() {
+            let hoverMsg = document.getElementById('hoverMessage');
+            hoverMsg.style.opacity = '1'; // Show the "bruhh" message
+            hoverMsg.style.transform = 'scale(1)'; // Make it appear smoothly
+
+            // Hide the message after 2 seconds
+            setTimeout(() => {
+                hoverMsg.style.opacity = '0';
+                hoverMsg.style.transform = 'scale(0.8)';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

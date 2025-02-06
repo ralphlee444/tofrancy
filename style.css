@@ -1,0 +1,126 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #DC143C, #8B0000); /* Crimson Red gradient for body background */
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start; /* Align content to the top */
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    flex-direction: column;
+    padding-top: 20px; /* Space from top */
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 350px;
+    height: 250px;
+    margin-top: 60px; /* Added margin to space from the top */
+}
+
+h1 {
+    color: red;
+    font-size: 28px;
+    text-align: center;
+    margin-top: 20px; /* Adjust to move the heading down a bit */
+}
+
+.buttons {
+    margin-top: 40px; /* Space between heading and buttons */
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* Space between Yes and No buttons */
+}
+
+button {
+    font-size: 18px;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.yes {
+    background-color: #DC143C; /* Crimson Red */
+    color: white;
+}
+
+.yes:hover {
+    background-color: darkred;
+    transform: scale(1.1);
+}
+
+.no {
+    background-color: gray;
+    color: white;
+    transition: transform 0.8s ease-in-out;
+}
+
+.message {
+    opacity: 0;
+    font-size: 20px;
+    color: #ff477e;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: scale(0.8);
+}
+
+.image-message {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: scale(0.8);
+    margin-top: 20px;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.us-image {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: -50px;
+}
+
+.message-text {
+    font-size: 28px;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+.hover-message {
+    opacity: 0;
+    font-size: 50px;
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: -180px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: scale(0.8);
+}
+
+.b-message {
+    opacity: 0;
+    font-size: 50px;
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: -180px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: scale(0.8);
+}
+
+
+button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
